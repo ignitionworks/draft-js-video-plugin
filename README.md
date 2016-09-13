@@ -24,12 +24,11 @@ const mentionPlugin = createVideoPlugin({
     //parse url to videoSrc object which will pass to WrapperComponent as props
         return {
             srcID: id,
-             srcType: 'youtube',
-             url,
+            srcType: 'youtube',
+            url,
         }
     },
     wrapperComponent, // react component
 });
 
 ```
-TODO: PR welcome
