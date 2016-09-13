@@ -4,6 +4,7 @@ import decorateComponentWithProps from 'decorate-component-with-props'
 import utils from './video/utils';
 import addVideo from './video/modifiers/addVideo';
 import defaultCompoent from './video/components/DefaultVideoComponent';
+import * as customType from './video/constants';
 
 const createVideoPlugin = (config = {}) => {
   const {
@@ -35,9 +36,9 @@ const createVideoPlugin = (config = {}) => {
       const entityData = Entity
         .get(contentBlock.getEntityAt(0))
         .getData();
-      if (blockType === 'atomic') {
+      if (blockType === 'atomic' && entityData.type === customType.VIDEOTYPE) {
         return {
-          component: wrapperComponent ? decorateComponentWithProps(wrapperComponent,entityData) : decorateComponentWithProps(defaultCompoent,entityData),
+          component: wrapperComponent ? decorateComponentWithProps(wrapperComponent, entityData) : decorateComponentWithProps(defaultCompoent, entityData),
         };
       }
       return null;
