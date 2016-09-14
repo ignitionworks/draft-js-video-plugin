@@ -13,16 +13,16 @@ const createVideoPlugin = (config = {}) => {
   } = config;
   return {
     handlePastedText: (text, html, { getEditorState, setEditorState }) => {
+      if (isVideo(text)) {
+        setEditorState(addVideo(getEditorState(), getVideoSrc(text)));
+        return true;
+      }
       if (utils.isYoutube(text)) {
         setEditorState(addVideo(getEditorState(), utils.getYoutubeSrc(text)));
         return true;
       }
       if (utils.isVimeo(text)) {
         setEditorState(addVideo(getEditorState(), utils.getVimeoSrc(text)));
-        return true;
-      }
-      if (isVideo(text)) {
-        setEditorState(addVideo(getEditorState(), getVideoSrc(text)));
         return true;
       }
       return false;
