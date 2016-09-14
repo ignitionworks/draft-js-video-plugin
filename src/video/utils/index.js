@@ -10,6 +10,7 @@ export default {
   },
   getYoutubeSrc: (url) => {
     const id = url && url.match(YOUTUBEMATCH_URL)[1]
+    console.log(id)
     return {
       srcID: id,
       srcType: 'youtube',
