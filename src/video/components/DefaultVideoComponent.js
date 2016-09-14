@@ -1,23 +1,20 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import ReactPlayer from 'react-player' // light weight player can be change later on
 
-class DefaultVideoCompoent extends Component {
+const DefaultVideoCompoent = props => {
+  const { blockProps } = this.props;
+  const { url } =blockProps;
+  return (
+    <ReactPlayer
+      width="100%"
+      url={url}
+      playing
+    />);
+};
 
-  render() {
-    const { blockProps } = this.props;
-    const { url } =blockProps;
-    return (
-      <ReactPlayer
-        width="100%"
-        url={url}
-        playing
-      />);
-  }
-}
 DefaultVideoCompoent.propTypes = {
   srcType: PropTypes.string,
   srcID: PropTypes.string,
   url: PropTypes.string,
 };
 export default DefaultVideoCompoent;
-
