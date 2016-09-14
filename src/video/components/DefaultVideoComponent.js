@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import ReactPlayer from 'react-player' // light weight player can be change later on
 
 const DefaultVideoCompoent = props => {
-  const { blockProps } = this.props;
+  const { blockProps } = props;
   const { url } =blockProps;
   return (
     <ReactPlayer
