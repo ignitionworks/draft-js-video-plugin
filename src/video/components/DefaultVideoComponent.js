@@ -1,15 +1,33 @@
 import React, { PropTypes } from 'react';
-import ReactPlayer from 'react-player' // light weight player can be change later on
+const YOUTUBE_PREFIX = 'https://www.youtube.com/embed/';
+const VIMEO_PREFIX = 'https://player.vimeo.com/video/'
+
+const getSrc = ({ url, srcID, srcType }) => {
+  if (srcType === 'youtube') {
+    return `${YOUTUBE_PREFIX}${srcID}`;
+  }
+  if (srcType === 'vimeo') {
+    return `${VIMEO_PREFIX}${srcID}`;
+  }
+  return undefined;
+};
 
 const DefaultVideoCompoent = props => {
   const { blockProps } = props;
-  const { url } =blockProps;
-  return (
-    <ReactPlayer
-      width="100%"
-      url={url}
-      playing
-    />);
+  const src = getSrc(blockProps);
+
+  if (src) {
+    return (
+      <iframe
+        style={{ width: '100%' }}
+        src={src}
+        frameBorder="0"
+        allowFullScreen
+      ></iframe>
+    );
+  }
+
+  return (<div>invalid video source</div>);
 };
 
 DefaultVideoCompoent.propTypes = {
