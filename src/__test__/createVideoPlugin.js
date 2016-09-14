@@ -8,7 +8,7 @@ import createVideoPlugin from '../createVideoPlugin';
 import utils from '../video/utils';
 import * as customType from '../video/constants';
 
-describe('CreateVideoPlugin', () => {
+describe('CreateVideoPlugin without config', () => {
   it('default video plugin handle youtube url', () => {
     const videoPlugin = createVideoPlugin();
     const text = 'https://www.youtube.com/watch?v=YsRMoWYGLNA';
