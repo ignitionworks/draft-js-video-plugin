@@ -1,6 +1,6 @@
 {
   "name": "draft-js-video-plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "video Plugin for DraftJS",
   "author": {
     "name": "Anchen li"
@@ -9,7 +9,7 @@
     "type": "git",
     "url": "https://github.com/mzbac/draft-js-video-plugin"
   },
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "keywords": [
     "editor",
     "video",
