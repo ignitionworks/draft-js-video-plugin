@@ -4,7 +4,8 @@ import ReactPlayer from 'react-player' // light weight player can be change late
 class DefaultVideoCompoent extends Component {
 
   render() {
-    const { url } = this.props;
+    const { blockProps } = this.props;
+    const { url } =blockProps;
     return (
       <ReactPlayer
         width="100%"

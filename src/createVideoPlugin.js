@@ -1,6 +1,5 @@
 import React from 'react';
 import { Entity } from 'draft-js';
-import decorateComponentWithProps from 'decorate-component-with-props'
 import utils from './video/utils';
 import addVideo from './video/modifiers/addVideo';
 import defaultCompoent from './video/components/DefaultVideoComponent';
@@ -38,7 +37,8 @@ const createVideoPlugin = (config = {}) => {
         .getData();
       if (blockType === 'atomic' && entityData.type === customType.VIDEOTYPE) {
         return {
-          component: wrapperComponent ? decorateComponentWithProps(wrapperComponent, entityData) : decorateComponentWithProps(defaultCompoent, entityData),
+          component: wrapperComponent ? wrapperComponent : defaultCompoent,
+          props: entityData,
         };
       }
       return null;
