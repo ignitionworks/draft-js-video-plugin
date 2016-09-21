@@ -15,15 +15,17 @@ const getSrc = ({ url, srcID, srcType }) => {
 const DefaultVideoCompoent = props => {
   const { blockProps } = props;
   const src = getSrc(blockProps);
+  const aspectRatio = 16/9;
+  const paddingTop = `${100/aspectRatio}%`;
 
   if (src) {
     return (
-      <iframe
-        style={{ width: '100%' }}
-        src={src}
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
+      <div style={{ position: 'relative' }}>
+        <div style={{ display: 'block', width: '100%', padding: `${paddingTop} 0 0 0`, margin: 0 }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, padding: 0, margin: 0 }}>
+          <iframe width='100%' height='100%' src={src} frameBorder='0' allowFullScreen></iframe>
+        </div>
+      </div>
     );
   }
 
